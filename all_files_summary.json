@@ -1,0 +1,19 @@
+{
+  "backend/main.mo": "Motoko actor that stores and manages video metadata (title, description, uploader, upload time, file size, blob reference) in a map, exposing CRUD and search operations.",
+  "feature_evidence.json": "Feature evidence report mapping four product features (upload page, library page, download functionality, dark theme design) to their implementing source files, components, and test IDs.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence summaries of each frontend source file, serving as a quick reference for the frontend codebase structure.",
+  "frontend/index.css": "Tailwind base stylesheet defining OKLCH CSS color tokens for light and dark themes, including background, foreground, card, and chart variables.",
+  "frontend/index.html": "HTML entry point for the React app, mounting the root div and loading the main TypeScript module.",
+  "frontend/src/App.tsx": "Sets up TanStack Router with a root layout route wrapping a library route (/) and an upload route (/upload).",
+  "frontend/src/components/Layout.tsx": "Page shell component providing a sticky header with logo and nav links, a hero banner with gradient overlay, a main content area, and a branded footer.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an authenticated or anonymous ICP backend actor using TanStack Query, invalidating dependent queries when the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an InternetIdentityProvider and useInternetIdentity hook for managing Internet Identity authentication state, login, and logout via AuthClient.",
+  "frontend/src/hooks/useQueries.ts": "TanStack Query hooks for backend operations: fetching all videos, fetching a single video, adding a video with blob upload, and deleting a video with cache invalidation.",
+  "frontend/src/index.css": "Global CSS file that imports Inter and Space Grotesk fonts, sets up Tailwind directives, and defines CSS custom properties for a dark-themed design system using oklch colors with teal accents.",
+  "frontend/src/main.tsx": "React app entry point that mounts the app with QueryClientProvider for React Query and InternetIdentityProvider for authentication wrapping the root App component.",
+  "frontend/src/pages/LibraryPage.tsx": "Video library page displaying all uploaded videos in a card grid with thumbnail, metadata, play/preview modal, download with progress, and delete confirmation dialog.",
+  "frontend/src/pages/UploadPage.tsx": "Video upload page with drag-and-drop file selection, title/description/uploader fields, chunked upload via ExternalBlob, and a progress bar showing upload status.",
+  "frontend/src/utils/videoDownload.ts": "Utility function that retrieves video bytes from an ExternalBlob with progress tracking, then triggers a browser file download using a temporary object URL.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the theme with Inter/Space Grotesk fonts, oklch-based color tokens, teal accent colors, custom shadows, border radii, and animation keyframes.",
+  "project_state.json": "Project state manifest tracking the app summary, existing implemented features, and pending feature requests with their requirement IDs and statuses for a video sharing platform."
+}

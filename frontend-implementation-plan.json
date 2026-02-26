@@ -1,0 +1,106 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "VideoVault Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-3",
+      "summary": "Build video upload page with file selection, metadata input, and progress tracking",
+      "acceptanceCriteria": [
+        "A file input allows selecting video files (mp4, webm, mov, etc.).",
+        "Title field is required; description field is optional.",
+        "A progress bar or percentage indicator shows upload progress.",
+        "User receives a success message when the upload completes.",
+        "Error states are displayed if the upload fails."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/UploadPage.tsx",
+          "operation": "create",
+          "description": "Create video upload page with file input, title/description fields, and upload form. Use the blob-storage component's ExternalBlob.fromBytes() to handle video file upload and ExternalBlob.withUploadProgress() to track upload progress. Display progress bar during upload and show success/error messages. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /upload pointing to UploadPage and add navigation link in the app header or navigation menu to wire the upload page into the application."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build video library page displaying all uploaded videos with metadata and action buttons",
+      "acceptanceCriteria": [
+        "All uploaded videos are listed with metadata (title, uploader, date, size).",
+        "Each video card has a clearly visible Download button.",
+        "Each video card has a Play/Preview button that opens an inline video player.",
+        "The list updates after a new video is uploaded."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LibraryPage.tsx",
+          "operation": "create",
+          "description": "Create video library page that fetches all videos using backend.getAllVideos() and displays them in a grid of video cards. Each card shows the generated thumbnail image from frontend/public/assets/generated/video-placeholder.dim_400x225.png, title, uploader, upload date, file size, and includes Download and Play buttons. Implement inline video player modal/section that opens when Play is clicked. Use the blob-storage component's ExternalBlob.getDirectURL() to display video thumbnails and stream videos. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /library (or make it the default route at /) pointing to LibraryPage and add navigation link to wire it into the app navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement video download functionality with progress indication",
+      "acceptanceCriteria": [
+        "Clicking Download fetches all chunks for the selected video.",
+        "Chunks are assembled into a single Blob in the correct order.",
+        "A browser download dialog is triggered with the video filename.",
+        "A loading/progress indicator is shown while chunks are being fetched."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/videoDownload.ts",
+          "operation": "create",
+          "description": "Create utility function to handle video download. Use the blob-storage component's ExternalBlob.getBytes() method to fetch the video data, then trigger browser download using the Blob and URL.createObjectURL(). Show loading indicator during fetch. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LibraryPage.tsx",
+          "operation": "modify",
+          "description": "Wire the Download button in each video card to call the videoDownload utility function, passing the video's ExternalBlob and filename. Display loading state on the button during download."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply bold, modern dark-themed design with vibrant accent colors and professional media platform aesthetics",
+      "acceptanceCriteria": [
+        "A cohesive dark color palette is used throughout the app.",
+        "Accent color is applied consistently to buttons, progress bars, and interactive elements.",
+        "Video cards have a clean, modern card layout with hover effects.",
+        "Typography is consistent and readable across all pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure dark theme color palette with deep charcoal backgrounds and electric teal accent colors in the Tailwind theme configuration. Define custom colors for primary (teal), background (charcoal), card backgrounds, and text colors. Set up hover transition durations."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Apply global dark theme styles including body background color (deep charcoal), base typography styles, and default text colors. Ensure all global styles support the dark theme aesthetic."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a layout component that includes the hero banner section with the generated image from frontend/public/assets/generated/hero-banner.dim_1200x400.png and the VideoVault logo from frontend/public/assets/generated/logo.dim_256x256.png. Include navigation header with app title and links to Upload and Library pages. Apply dark theme styling with teal accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with the Layout component to ensure consistent branding, navigation, and hero section across all pages."
+        }
+      ]
+    }
+  ]
+}

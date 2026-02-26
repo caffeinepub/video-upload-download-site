@@ -1,0 +1,140 @@
+{
+  "kind": "build_request",
+  "title": "Video Upload & Download Website",
+  "projectName": "VideoVault",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model to store video metadata including title, description, uploader name, upload timestamp, file size, and a unique video ID. Implement canister storage for video binary data using stable memory or chunked uploads.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video upload kro our video download option bi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Video metadata (title, description, uploader, timestamp, size, ID) is persisted in stable storage.",
+        "Video binary data can be stored and retrieved via the backend canister.",
+        "Each video has a unique identifier used to reference it."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend API methods: uploadVideoChunk (to receive chunked video data), finalizeUpload (to commit and store the complete video), getVideoMetadataList (to list all uploaded videos), getVideoChunk (to retrieve video data in chunks for download), and deleteVideo.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video upload kro our video download option bi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "uploadVideoChunk accepts a video ID, chunk index, and byte array.",
+        "finalizeUpload stores metadata and marks the video as complete.",
+        "getVideoMetadataList returns an array of all video metadata records.",
+        "getVideoChunk returns the requested chunk for a given video ID and chunk index.",
+        "deleteVideo removes the video data and metadata from storage."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a video upload page where users can select a video file from their device, enter a title and optional description, and submit the upload. Show a progress bar during the upload process.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video upload kro"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A file input allows selecting video files (mp4, webm, mov, etc.).",
+        "Title field is required; description field is optional.",
+        "A progress bar or percentage indicator shows upload progress.",
+        "User receives a success message when the upload completes.",
+        "Error states are displayed if the upload fails."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a video library page that lists all uploaded videos with their thumbnail placeholder, title, description, uploader name, upload date, and file size. Each entry should include a Download button and a Play/Preview button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video download option bi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All uploaded videos are listed with metadata (title, uploader, date, size).",
+        "Each video card has a clearly visible Download button.",
+        "Each video card has a Play/Preview button that opens an inline video player.",
+        "The list updates after a new video is uploaded."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement the video download functionality: when the user clicks Download on a video, the app fetches all chunks from the backend, assembles them into a Blob, and triggers a browser file download with the original filename.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video download option bi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking Download fetches all chunks for the selected video.",
+        "Chunks are assembled into a single Blob in the correct order.",
+        "A browser download dialog is triggered with the video filename.",
+        "A loading/progress indicator is shown while chunks are being fetched."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a bold, modern dark-themed visual design with vibrant accent colors (e.g., deep charcoal backgrounds, electric teal or amber highlights), clean card-based layouts, smooth hover transitions, and consistent typography. The design should feel like a professional media platform.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A cohesive dark color palette is used throughout the app.",
+        "Accent color is applied consistently to buttons, progress bars, and interactive elements.",
+        "Video cards have a clean, modern card layout with hover effects.",
+        "Typography is consistent and readable across all pages."
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must reside in a single Motoko actor file (backend/main.mo).",
+    "Do not use any external databases or cloud storage; use Internet Computer canister stable memory.",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "User authentication or login (no Internet Identity integration in this build).",
+    "Video transcoding or format conversion.",
+    "Comments, likes, or social features.",
+    "Real-time notifications or WebSockets.",
+    "Video streaming with adaptive bitrate (HLS/DASH)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Bold dark-themed hero banner with abstract video play button motif and glowing teal accent lines (hero-banner.dim_1200x400.png)",
+      "Generic video thumbnail placeholder with a centered play icon on a dark charcoal background (video-placeholder.dim_400x225.png)",
+      "VideoVault logo mark — a stylized film reel or play button icon in teal and white on transparent background (logo.dim_256x256.png)"
+    ],
+    "edits": []
+  }
+}

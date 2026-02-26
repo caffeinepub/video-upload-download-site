@@ -1,0 +1,87 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-video-upload-page-where-users-can-select-a-video-file-from-their-device-enter-a-title-and-optional-description-and-submit-the-upload-show-a-progress-bar-during-the-upload-process",
+      "featureTitle": "Build a video upload page where users can select a video file from their device, enter a title and optional description, and submit the upload. Show a progress bar during the upload process.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/UploadPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-video-library-page-that-lists-all-uploaded-videos-with-their-thumbnail-placeholder-title-description-uploader-name-upload-date-and-file-size-each-entry-should-include-a-download-button-and-a-play-preview-button",
+      "featureTitle": "Build a video library page that lists all uploaded videos with their thumbnail placeholder, title, description, uploader name, upload date, and file size. Each entry should include a Download button and a Play/Preview button.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/LibraryPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-video-download-functionality-when-the-user-clicks-download-on-a-video-the-app-fetches-all-chunks-from-the-backend-assembles-them-into-a-blob-and-triggers-a-browser-file-download-with-the-original-filename",
+      "featureTitle": "Implement the video download functionality: when the user clicks Download on a video, the app fetches all chunks from the backend, assembles them into a Blob, and triggers a browser file download with the original filename.",
+      "files": [
+        "frontend/src/pages/LibraryPage.tsx",
+        "frontend/src/utils/videoDownload.ts"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-bold-modern-dark-themed-visual-design-with-vibrant-accent-colors-e-g-deep-charcoal-backgrounds-electric-teal-or-amber-highlights-clean-card-based-layouts-smooth-hover-transitions-and-consistent-typography-the-design-should-feel-like-a-professional-media-platform",
+      "featureTitle": "Apply a bold, modern dark-themed visual design with vibrant accent colors (e.g., deep charcoal backgrounds, electric teal or amber highlights), clean card-based layouts, smooth hover transitions, and consistent typography. The design should feel like a professional media platform.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

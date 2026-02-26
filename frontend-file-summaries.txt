@@ -1,0 +1,10 @@
+{
+  "frontend/src/index.css": "Global dark-themed styles with OKLCH color tokens for a deep charcoal/electric teal palette, custom font imports (Inter + Space Grotesk), and utility classes for teal glow effects and card hover animations.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the design system with custom teal color tokens, Space Grotesk/Inter font families, enhanced border radii, teal box shadows, and fade-in/pulse animations.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations — fetching all videos, fetching a single video, adding a video (with blob upload), and deleting a video, with proper cache invalidation.",
+  "frontend/src/utils/videoDownload.ts": "Utility function that fetches video bytes from an ExternalBlob with progress tracking, assembles them into a typed Blob, and triggers a browser file download dialog.",
+  "frontend/src/components/Layout.tsx": "Full-page layout shell with sticky dark header (logo + nav links), hero banner image with gradient overlay, main content area, and branded footer with caffeine.ai attribution.",
+  "frontend/src/pages/UploadPage.tsx": "Video upload page with drag-and-drop file zone, title/uploader/description fields, upload progress bar, success/error states, and integration with the addVideo backend mutation via ExternalBlob.",
+  "frontend/src/pages/LibraryPage.tsx": "Video library page displaying all uploaded videos in a responsive grid with search, skeleton loading, empty/error states, video cards with play/download/delete actions, and an inline video player dialog.",
+  "frontend/src/App.tsx": "Main app entry point that sets up TanStack Router with root layout route, library route (/), and upload route (/upload)."
+}
